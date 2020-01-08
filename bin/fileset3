@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+
+import argparse
+import sys
+from fileset3 import server
+from tornado import options
+
+options.define('port', default=8080, help='port to listen on')
+
+
+def main(argv):
+    options.parse_command_line(argv[1:])
+    flags = options.options
+    port = flags.port
+    server.run(port=port)
+
+
+if __name__ == '__main__':
+    main(sys.argv)
